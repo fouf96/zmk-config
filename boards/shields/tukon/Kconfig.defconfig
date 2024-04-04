@@ -16,20 +16,6 @@ if SHIELD_TUKON_LEFT || SHIELD_TUKON_RIGHT
 config ZMK_SPLIT
     default y
 
-if ZMK_RGB_UNDERGLOW
-
-config WS2812_STRIP
-    default y
-
-config SPI
-    default y
-
-config ZMK_RGB_UNDERGLOW_EFF_START
-    default 0
-
-endif # ZMK_RGB_UNDERGLOW
-
-
 config TUKON_DISPLAY
     bool "Tukon OLED Display"
     default y
