@@ -18,7 +18,7 @@ config ZMK_SPLIT
 
 config SHIELD_TUKON_PM
     bool "Tukon Automatic Power Management"
-    default y
+    default n
     select ZMK_POWER_DOMAINS
     select ZMK_POWER_DOMAINS_DYNAMIC_DEFAULT
     select PM_DEVICE
