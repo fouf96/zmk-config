@@ -36,6 +36,9 @@ config WS2812_STRIP
 config SPI
     default y
 
+config ZMK_RGB_UNDERGLOW_EFF_START
+    default 0
+
 endif # ZMK_RGB_UNDERGLOW
 
 
