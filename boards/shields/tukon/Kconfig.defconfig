@@ -27,12 +27,17 @@ config SHIELD_TUKON_PM
     select POWER_DOMAIN
     select POWER_DOMAIN_GPIO
 
-config TUKON_RGB_UNDERGLOW
-    bool "Tukon per Key RGB LEDs"
+
+if ZMK_RGB_UNDERGLOW
+
+config WS2812_STRIP
     default y
-    select ZMK_RGB_UNDERGLOW
-    select WS2812_STRIP
-    select SPI
+
+config SPI
+    default y
+
+endif # ZMK_RGB_UNDERGLOW
+
 
 config TUKON_DISPLAY
     bool "Tukon OLED Display"
