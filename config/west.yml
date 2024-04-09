@@ -11,8 +11,8 @@ manifest:
       url-base: https://github.com/fouf96
   projects:
     - name: zmk
-      remote: fouf96
-      revision: power-merge-main
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
   self:
     path: config
