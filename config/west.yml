@@ -12,7 +12,7 @@ manifest:
   projects:
     - name: zmk
       remote: fouf96
-      revision: power/commit2
+      revision: power/commit3
       import: app/west.yml
   self:
     path: config
