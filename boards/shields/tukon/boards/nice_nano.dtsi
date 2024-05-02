@@ -5,7 +5,6 @@
  */
 
 #include "nice_nano-pinctrl.dtsi"
-#include "arduino_pro_micro_pins.dtsi"
 
 / {
 	model = "Nordic nRF52840 DK NRF52840";
