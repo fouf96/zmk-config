@@ -2,21 +2,268 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-        keymap {
-                compatible = "zmk,keymap";
 
-                default_layer {
-// -----------------------------------------------------------------------------------------
-// |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
-// |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |
-// |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
-//             | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P   
-   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI
-   &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH
-        &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
-                        >;
+        behaviors {
+                none: none {
+                        compatible = "zmk,behavior-none";
+                        #binding-cells = <0x0>;
+                        phandle = <0x19>;
+                };
+                to: to_layer {
+                        compatible = "zmk,behavior-to-layer";
+                        #binding-cells = <0x1>;
+                        phandle = <0x1a>;
+                };
+                bt: bluetooth {
+                        compatible = "zmk,behavior-bluetooth";
+                        #binding-cells = <0x2>;
+                        phandle = <0x11>;
+                };
+                out: outputs {
+                        compatible = "zmk,behavior-outputs";
+                        #binding-cells = <0x1>;
+                        phandle = <0x17>;
+                };
+                caps_word: caps_word {
+                        compatible = "zmk,behavior-caps-word";
+                        #binding-cells = <0x0>;
+                        continue-list = <0x207002d 0x7002a 0x7004c>;
+                        phandle = <0x18>;
+                };
+                mkp: mouse_key_press {
+                        compatible = "zmk,behavior-mouse-key-press";
+                        #binding-cells = <0x1>;
+                        phandle = <0x1d>;
+                };
+                u_bt_sel_0: u_bt_sel_0 {
+                        compatible = "zmk,behavior-mod-morph";
+                        #binding-cells = <0x0>;
+                        bindings = <&bt 0x3 0x0>, <&u_macro_u_bt_sel_0>;
+                        mods = <0x22>;
+                        phandle = <0x2c>;
+                };
+                u_bt_sel_1: u_bt_sel_1 {
+                        compatible = "zmk,behavior-mod-morph";
+                        #binding-cells = <0x0>;
+                        bindings = <&bt 0x3 0x1>, <&u_macro_u_bt_sel_1>;
+                        mods = <0x22>;
+                        phandle = <0x2d>;
+                };
+                u_bt_sel_2: u_bt_sel_2 {
+                        compatible = "zmk,behavior-mod-morph";
+                        #binding-cells = <0x0>;
+                        bindings = <&bt 0x3 0x2>, <&u_macro_u_bt_sel_2>;
+                        mods = <0x22>;
+                        phandle = <0x2e>;
+                };
+                u_bt_sel_3: u_bt_sel_3 {
+                        compatible = "zmk,behavior-mod-morph";
+                        #binding-cells = <0x0>;
+                        bindings = <&bt 0x3 0x3>, <&u_macro_u_bt_sel_3>;
+                        mods = <0x22>;
+                        phandle = <0x2f>;
+                };
+                u_bt_sel_4: u_bt_sel_4 {
+                        compatible = "zmk,behavior-mod-morph";
+                        #binding-cells = <0x0>;
+                        bindings = <&bt 0x3 0x4>, <&u_macro_u_bt_sel_4>;
+                        mods = <0x22>;
+                };
+                u_out_tog: u_out_tog {
+                        compatible = "zmk,behavior-mod-morph";
+                        #binding-cells = <0x0>;
+                        bindings = <&out 0x0>, <&out 0x1>;
+                        mods = <0x22>;
+                        phandle = <0x2b>;
+                };
+                u_caps_word: u_caps_word {
+                        compatible = "zmk,behavior-mod-morph";
+                        #binding-cells = <0x0>;
+                        bindings = <&caps_word>, <&kp 0x70039>;
+                        mods = <0x22>;
+                        phandle = <0x22>;
+                };
+                u_to_U_BASE: u_to_U_BASE {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0x0>;
+                        tapping-term-ms = <0xc8>;
+                        bindings = <&none>, <&to 0x0>;
+                        phandle = <0x21>;
+                };
+                u_to_U_EXTRA: u_to_U_EXTRA {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0x0>;
+                        tapping-term-ms = <0xc8>;
+                        bindings = <&none>, <&to 0x1>;
+                        phandle = <0x20>;
+                };
+                u_to_U_TAP: u_to_U_TAP {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0x0>;
+                        tapping-term-ms = <0xc8>;
+                        bindings = <&none>, <&to 0x2>;
+                        phandle = <0x1f>;
+                };
+                u_to_U_BUTTON: u_to_U_BUTTON {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0x0>;
+                        tapping-term-ms = <0xc8>;
+                        bindings = <&none>, <&to 0x3>;
+                };
+                u_to_U_NAV: u_to_U_NAV {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0x0>;
+                        tapping-term-ms = <0xc8>;
+                        bindings = <&none>, <&to 0x4>;
+                        phandle = <0x24>;
+                };
+                u_to_U_MOUSE: u_to_U_MOUSE {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0x0>;
+                        tapping-term-ms = <0xc8>;
+                        bindings = <&none>, <&to 0x5>;
+                        phandle = <0x26>;
+                };
+                u_to_U_MEDIA: u_to_U_MEDIA {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0x0>;
+                        tapping-term-ms = <0xc8>;
+                        bindings = <&none>, <&to 0x6>;
+                        phandle = <0x2a>;
+                };
+                u_to_U_NUM: u_to_U_NUM {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0x0>;
+                        tapping-term-ms = <0xc8>;
+                        bindings = <&none>, <&to 0x7>;
+                        phandle = <0x23>;
+                };
+                u_to_U_SYM: u_to_U_SYM {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0x0>;
+                        tapping-term-ms = <0xc8>;
+                        bindings = <&none>, <&to 0x8>;
+                        phandle = <0x25>;
+                };
+                u_to_U_FUN: u_to_U_FUN {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0x0>;
+                        tapping-term-ms = <0xc8>;
+                        bindings = <&none>, <&to 0x9>;
+                        phandle = <0x29>;
+                };
+                u_mt: u_mt {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <0x2>;
+                        tapping-term-ms = <0xc8>;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&kp>;
+                        phandle = <0x1b>;
+                };
+                u_lt: u_lt {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <0x2>;
+                        tapping-term-ms = <0xc8>;
+                        flavor = "tap-preferred";
+                        bindings = <&mo>, <&kp>;
+                        phandle = <0x1c>;
                 };
         };
-};
+        keymap {
+                compatible = "zmk,keymap";
+                BASE {
+                        display-name = "Base";
+                        bindings = <&kp 0x70014 &kp 0x7001a &kp 0x70008 &kp 0x70015 &kp 0x70017 &kp 0x7001c &kp 0x70018 &kp 0x7000c &kp 0x70012 &kp 0x70013 &u_mt 0x700e3 0x70004 &u_mt 0x700e2 0x70016 &u_mt 0x700e0 0x70007 &u_mt 0x700e1 0x70009 &kp 0x7000a &kp 0x7000b &u_mt 0x700e1 0x7000d &u_mt 0x700e0 0x7000e &u_mt 0x700e2 0x7000f &u_mt 0x700e3 0x70034 &u_lt 0x3 0x7001d &u_mt 0x700e6 0x7001b &kp 0x70006 &kp 0x70019 &kp 0x70005 &kp 0x70011 &kp 0x70010 &kp 0x70036 &u_mt 0x700e6 0x70037 &u_lt 0x3 0x70038 &u_lt 0x6 0x70029 &u_lt 0x4 0x7002c &u_lt 0x5 0x7002b &u_lt 0x8 0x70028 &u_lt 0x7 0x7002a &u_lt 0x9 0x7004c>;
+                };
+                EXTRA {
+                        display-name = "Extra";
+                        bindings = <&kp 0x70014 &kp 0x7001a &kp 0x70008 &kp 0x70015 &kp 0x70017 &kp 0x7001c &kp 0x70018 &kp 0x7000c &kp 0x70012 &kp 0x70013 &u_mt 0x700e3 0x70004 &u_mt 0x700e2 0x70016 &u_mt 0x700e0 0x70007 &u_mt 0x700e1 0x70009 &kp 0x7000a &kp 0x7000b &u_mt 0x700e1 0x7000d &u_mt 0x700e0 0x7000e &u_mt 0x700e2 0x7000f &u_mt 0x700e3 0x70034 &u_lt 0x3 0x7001d &u_mt 0x700e6 0x7001b &kp 0x70006 &kp 0x70019 &kp 0x70005 &kp 0x70011 &kp 0x70010 &kp 0x70036 &u_mt 0x700e6 0x70037 &u_lt 0x3 0x70038 &u_lt 0x6 0x70029 &u_lt 0x4 0x7002c &u_lt 0x5 0x7002b &u_lt 0x8 0x70028 &u_lt 0x7 0x7002a &u_lt 0x9 0x7004c>;
+                };
+                TAP {
+                        display-name = "Tap";
+                        bindings = <&kp 0x70014 &kp 0x7001a &kp 0x70009 &kp 0x70013 &kp 0x70005 &kp 0x7000d &kp 0x7000f &kp 0x70018 &kp 0x7001c &kp 0x70034 &kp 0x70004 &kp 0x70015 &kp 0x70016 &kp 0x70017 &kp 0x7000a &kp 0x70010 &kp 0x70011 &kp 0x70008 &kp 0x7000c &kp 0x70012 &kp 0x7001d &kp 0x7001b &kp 0x70006 &kp 0x70007 &kp 0x70019 &kp 0x7000e &kp 0x7000b &kp 0x70036 &kp 0x70037 &kp 0x70038 &kp 0x70029 &kp 0x7002c &kp 0x7002b &kp 0x70028 &kp 0x7002a &kp 0x7004c>;
+                };
+                BUTTON {
+                        display-name = "Button";
+                        bindings = <&kp 0x7007a &kp 0x207004c &kp 0x1070049 &kp 0x2070049 &kp 0x70079 &kp 0x70079 &kp 0x2070049 &kp 0x1070049 &kp 0x207004c &kp 0x7007a &kp 0x700e3 &kp 0x700e2 &kp 0x700e0 &kp 0x700e1 &none &none &kp 0x700e1 &kp 0x700e0 &kp 0x700e2 &kp 0x700e3 &kp 0x7007a &kp 0x207004c &kp 0x1070049 &kp 0x2070049 &kp 0x70079 &kp 0x70079 &kp 0x2070049 &kp 0x1070049 &kp 0x207004c &kp 0x7007a &mkp 0x4 &mkp 0x1 &mkp 0x2 &mkp 0x2 &mkp 0x1 &mkp 0x4>;
+                };
+                NAV {
+                        display-name = "Nav";
+                        bindings = <&bootloader &u_to_U_TAP &u_to_U_EXTRA &u_to_U_BASE &none &kp 0x70079 &kp 0x2070049 &kp 0x1070049 &kp 0x207004c &kp 0x7007a &kp 0x700e3 &kp 0x700e2 &kp 0x700e0 &kp 0x700e1 &none &u_caps_word &kp 0x70050 &kp 0x70051 &kp 0x70052 &kp 0x7004f &none &kp 0x700e6 &u_to_U_NUM &u_to_U_NAV &none &kp 0x70049 &kp 0x7004a &kp 0x7004e &kp 0x7004b &kp 0x7004d &none &none &none &kp 0x70028 &kp 0x7002a &kp 0x7004c>;
+                };
+                MOUSE {
+                        display-name = "Mouse";
+                        bindings = <&bootloader &u_to_U_TAP &u_to_U_EXTRA &u_to_U_BASE &none &kp 0x70079 &kp 0x2070049 &kp 0x1070049 &kp 0x207004c &kp 0x7007a &kp 0x700e3 &kp 0x700e2 &kp 0x700e0 &kp 0x700e1 &none &none &kp 0x7005c &kp 0x7005a &kp 0x70060 &kp 0x7005e &none &kp 0x700e6 &u_to_U_SYM &u_to_U_MOUSE &none &none &none &none &none &none &none &none &none &mkp 0x2 &mkp 0x1 &mkp 0x4>;
+                };
+                MEDIA {
+                        display-name = "Media";
+                        bindings = <&bootloader &u_to_U_TAP &u_to_U_EXTRA &u_to_U_BASE &none &rgb_ug 0x0 0x0 &rgb_ug 0xb 0x0 &rgb_ug 0x3 0x0 &rgb_ug 0x5 0x0 &rgb_ug 0x7 0x0 &kp 0x700e3 &kp 0x700e2 &kp 0x700e0 &kp 0x700e1 &none &ext_power 0x2 &kp 0xc00b6 &kp 0xc00ea &kp 0xc00e9 &kp 0xc00b5 &none &kp 0x700e6 &u_to_U_FUN &u_to_U_MEDIA &none &u_out_tog &u_bt_sel_0 &u_bt_sel_1 &u_bt_sel_2 &u_bt_sel_3 &none &none &none &kp 0xc00b7 &kp 0xc00cd &kp 0xc00e2>;
+                };
+                NUM {
+                        display-name = "Num";
+                        bindings = <&kp 0x7002f &kp 0x70024 &kp 0x70025 &kp 0x70026 &kp 0x70030 &none &u_to_U_BASE &u_to_U_EXTRA &u_to_U_TAP &bootloader &kp 0x70033 &kp 0x70021 &kp 0x70022 &kp 0x70023 &kp 0x7002e &none &kp 0x700e1 &kp 0x700e0 &kp 0x700e2 &kp 0x700e3 &kp 0x70035 &kp 0x7001e &kp 0x7001f &kp 0x70020 &kp 0x70031 &none &u_to_U_NUM &u_to_U_NAV &kp 0x700e6 &none &kp 0x70037 &kp 0x70027 &kp 0x7002d &none &none &none>;
+                };
+                SYM {
+                        display-name = "Sym";
+                        bindings = <&kp 0x207002f &kp 0x2070024 &kp 0x2070025 &kp 0x2070026 &kp 0x2070030 &none &u_to_U_BASE &u_to_U_EXTRA &u_to_U_TAP &bootloader &kp 0x2070033 &kp 0x2070021 &kp 0x2070022 &kp 0x2070023 &kp 0x207002e &none &kp 0x700e1 &kp 0x700e0 &kp 0x700e2 &kp 0x700e3 &kp 0x2070035 &kp 0x207001e &kp 0x207001f &kp 0x2070020 &kp 0x2070031 &none &u_to_U_SYM &u_to_U_MOUSE &kp 0x700e6 &none &kp 0x2070026 &kp 0x2070027 &kp 0x207002d &none &none &none>;
+                };
+                FUN {
+                        display-name = "Fun";
+                        bindings = <&kp 0x70045 &kp 0x70040 &kp 0x70041 &kp 0x70042 &kp 0x70046 &none &u_to_U_BASE &u_to_U_EXTRA &u_to_U_TAP &bootloader &kp 0x70044 &kp 0x7003d &kp 0x7003e &kp 0x7003f &kp 0x70047 &none &kp 0x700e1 &kp 0x700e0 &kp 0x700e2 &kp 0x700e3 &kp 0x70043 &kp 0x7003a &kp 0x7003b &kp 0x7003c &kp 0x70048 &none &u_to_U_FUN &u_to_U_MEDIA &kp 0x700e6 &none &kp 0x70065 &kp 0x7002c &kp 0x7002b &none &none &none>;
+                };
+        };
+        macros {
+                u_macro_u_bt_sel_0: u_macro_u_bt_sel_0 {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0x0>;
+                        wait-ms = <0x0>;
+                        bindings = <&bt 0x3 0x0 &bt 0x0 0x0>;
+                        phandle = <0x12>;
+                };
+                u_macro_u_bt_sel_1: u_macro_u_bt_sel_1 {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0x0>;
+                        wait-ms = <0x0>;
+                        bindings = <&bt 0x3 0x1 &bt 0x0 0x0>;
+                        phandle = <0x13>;
+                };
+                u_macro_u_bt_sel_2: u_macro_u_bt_sel_2 {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0x0>;
+                        wait-ms = <0x0>;
+                        bindings = <&bt 0x3 0x2 &bt 0x0 0x0>;
+                        phandle = <0x14>;
+                };
+                u_macro_u_bt_sel_3: u_macro_u_bt_sel_3 {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0x0>;
+                        wait-ms = <0x0>;
+                        bindings = <&bt 0x3 0x3 &bt 0x0 0x0>;
+                        phandle = <0x15>;
+                };
+                u_macro_u_bt_sel_4: u_macro_u_bt_sel_4 {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0x0>;
+                        wait-ms = <0x0>;
+                        bindings = <&bt 0x3 0x4 &bt 0x0 0x0>;
+                        phandle = <0x16>;
+                };
+                u_macro_btn1: u_macro_btn1 {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0x0>;
+                        wait-ms = <0x0>;
+                        bindings = <&kp 0x70054 &kp 0x7005d>;
+                };
+                u_macro_btn2: u_macro_btn2 {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0x0>;
+                        wait-ms = <0x0>;
+                        bindings = <&kp 0x70056 &kp 0x7005d>;
+                };
+                u_macro_btn3: u_macro_btn3 {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0x0>;
+                        wait-ms = <0x0>;
+                        bindings = <&kp 0x70055 &kp 0x7005d>;
+                };
+        };
