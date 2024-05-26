@@ -173,7 +173,7 @@
                 };
                 MEDIA {
                         display-name = "Media";
-                        bindings = <&bootloader &u_to_U_TAP &u_to_U_EXTRA &u_to_U_BASE &none &rgb_ug 0x0 0x0 &rgb_ug 0xb 0x0 &rgb_ug 0x3 0x0 &rgb_ug 0x5 0x0 &rgb_ug 0x7 0x0 &kp 0x700e3 &kp 0x700e2 &kp 0x700e0 &kp 0x700e1 &none &ext_power 0x2 &kp 0xc00b6 &kp 0xc00ea &kp 0xc00e9 &kp 0xc00b5 &none &kp 0x700e6 &u_to_U_FUN &u_to_U_MEDIA &none &u_out_tog &u_bt_sel_0 &u_bt_sel_1 &u_bt_sel_2 &u_bt_sel_3 &none &none &none &kp 0xc00b7 &kp 0xc00cd &kp 0xc00e2>;
+                        bindings = <&bootloader &u_to_U_TAP &u_to_U_EXTRA &u_to_U_BASE &none &rgb_ug 0x0 0x0 &rgb_ug 0xb 0x0 &rgb_ug 0x3 0x0 &rgb_ug 0x5 0x0 &rgb_ug 0x7 0x0 &kp 0x700e3 &kp 0x700e2 &kp 0x700e0 &kp 0x700e1 &none &none 0x2 &kp 0xc00b6 &kp 0xc00ea &kp 0xc00e9 &kp 0xc00b5 &none &kp 0x700e6 &u_to_U_FUN &u_to_U_MEDIA &none &u_out_tog &u_bt_sel_0 &u_bt_sel_1 &u_bt_sel_2 &u_bt_sel_3 &none &none &none &kp 0xc00b7 &kp 0xc00cd &kp 0xc00e2>;
                 };
                 NUM {
                         display-name = "Num";
