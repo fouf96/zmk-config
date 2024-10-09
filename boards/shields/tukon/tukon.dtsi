@@ -82,7 +82,7 @@
         compatible = "power-domain-gpio";
         startup-delay-us = <200>;
         off-on-delay-us = <2000>;
-        enable-gpios = <&gpio1 2 0 GPIO_ACTIVE_LOW>;
+        enable-gpios = <&gpio1 2 GPIO_ACTIVE_LOW>;
         power-domain = <&core_power_domain>;
         zephyr,pm-device-runtime-auto;
     };
@@ -91,7 +91,7 @@
         compatible = "power-domain-gpio";
         startup-delay-us = <2000>; // if this value is too low the OLED will not turn on, the MOSFET will turn on the power but the display will not show anything
         off-on-delay-us = <2000>; // if this value is too low the OLED will not turn on, see above (startup-delay-us)
-        enable-gpios = <&gpio1 7 0 GPIO_ACTIVE_LOW>;
+        enable-gpios = <&gpio1 7 GPIO_ACTIVE_LOW>;
         power-domain = <&core_power_domain>;
         zephyr,pm-device-runtime-auto;
     };
@@ -118,17 +118,17 @@
 
         diode-direction = "row2col";
         row-gpios
-        = <&gpio0 22 0 GPIO_ACTIVE_HIGH>
-        , <&gpio1 13 0 GPIO_ACTIVE_HIGH>
-        , <&gpio0 6 0 GPIO_ACTIVE_HIGH>
-        , <&gpio0 9 0 GPIO_ACTIVE_HIGH>
+        = <&gpio0 22 GPIO_ACTIVE_HIGH>
+        , <&gpio1 13 GPIO_ACTIVE_HIGH>
+        , <&gpio0 6 GPIO_ACTIVE_HIGH>
+        , <&gpio0 9 GPIO_ACTIVE_HIGH>
         ;
         col-gpios
-        = <&gpio1 6 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&gpio0 11 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&gpio1 0 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&gpio0 24 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&gpio1 4 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        = <&gpio1 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         ;
     };
 };
