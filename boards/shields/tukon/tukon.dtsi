@@ -29,22 +29,6 @@
     pinctrl-1 = <&spi3_sleep>;
     pinctrl-names = "default", "sleep";
 
-    led_strip: ws2812@0 {
-        compatible = "worldsemi,ws2812-spi";
-
-        zephyr,pm-device-runtime-auto;
-
-        /* SPI */
-        reg = <0>; /* ignored, but necessary for SPI bindings */
-        spi-max-frequency = <4000000>;
-
-        /* WS2812 */
-        chain-length = <18>; /* 0 underglow, 18 per-key LEDs per side*/
-        spi-one-frame = <0x70>;
-        spi-zero-frame = <0x40>;
-
-        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
-    };
 };
 
 &pro_micro_i2c {
@@ -56,8 +40,6 @@
     chosen {
         zmk,matrix_transform = &default_transform;
         zmk,kscan = &kscan0;
-        zmk,underglow = &led_strip;
-        zephyr,display = &oled;
     };
     
     default_transform: keymap_transform_0 {
