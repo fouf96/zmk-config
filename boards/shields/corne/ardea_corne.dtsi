@@ -1,15 +1,94 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/led/led.h>
 
+&pinctrl {Add commentMore actions
+    spi3_default: spi3_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_MOSI, 0, 22)>;
+        };
+    };
+
+    spi3_sleep: spi3_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_MOSI, 0, 22)>;
+            low-power-enable;
+        };
+    };
+};
+
+&spi3 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+
+    pinctrl-0 = <&spi3_default>;
+    pinctrl-1 = <&spi3_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    led_strip: ws2812@0 {
+        compatible = "worldsemi,ws2812-spi";
+
+        power-domain = <&rgb_power>;
+        zephyr,pm-device-runtime-auto;
+
+        /* SPI */
+        reg = <0>; /* ignored, but necessary for SPI bindings */
+        spi-max-frequency = <4000000>;
+
+        /* WS2812 */
+        chain-length = <27>; /* 0 underglow, 18 per-key LEDs per side*/
+        spi-one-frame = <0x70>;
+        spi-zero-frame = <0x40>;
+
+        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
+    };
+};
+
 &pro_micro_i2c {
     status = "okay";
 
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        power-domain = <&oled_power>;
+        zephyr,pm-device-runtime-auto;
+        reg = <0x3c>;
+        width = <128>;
+        height = <32>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <31>;
+        segment-remap;
+        com-invdir;
+        com-sequential;
+        inversion-on;
+        prechargep = <0x22>;
+    };
+};
+
+rgb_power: rgb_power {
+        compatible = "power-domain-gpio";
+        startup-delay-us = <200>;
+        off-on-delay-us = <2000>;
+        enable-gpios = <NRF_PSEL(SPIM_MOSI, 0, 29) GPIO_ACTIVE_LOW>;
+        power-domain = <&core_power_domain>;
+        zephyr,pm-device-runtime-auto;
+    };
+
+oled_power: oled_power {
+    compatible = "power-domain-gpio";
+    startup-delay-us = <2000>; // if this value is too low the OLED will not turn on, the MOSFET will turn on the power but the display will not show anything  
+    off-on-delay-us = <2000>; // if this value is too low the OLED will not turn on, see above (startup-delay-us)
+    enable-gpios = <NRF_PSEL(SPIM_MOSI, 0, 31) GPIO_ACTIVE_LOW>;
+    power-domain = <&core_power_domain>;
+    zephyr,pm-device-runtime-auto;
 };
 
 / {
     chosen {
         zmk,matrix_transform = &default_transform;
         zmk,kscan = &kscan0;
+        zmk,underglow = &led_strip;
+        zephyr,display = &oled;
     };
     
     default_transform: keymap_transform_0 {
