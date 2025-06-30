@@ -65,6 +65,14 @@
     };
 };
 
+/ {
+    chosen {
+        zmk,matrix_transform = &default_transform;
+        zmk,kscan = &kscan0;
+        zmk,underglow = &led_strip;
+        zephyr,display = &oled;
+    };
+
 rgb_power: rgb_power {
         compatible = "power-domain-gpio";
         startup-delay-us = <200>;
@@ -83,13 +91,6 @@ oled_power: oled_power {
     zephyr,pm-device-runtime-auto;
 };
 
-/ {
-    chosen {
-        zmk,matrix_transform = &default_transform;
-        zmk,kscan = &kscan0;
-        zmk,underglow = &led_strip;
-        zephyr,display = &oled;
-    };
     
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
