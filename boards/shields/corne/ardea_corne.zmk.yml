@@ -1,6 +1,6 @@
 file_format: "1"
-id: corne
-name: Corne
+id: ardea_corne
+name: ardea_corne
 type: shield
 # url: https://github.com/foostan/crkbd/
 requires: [pro_micro]
@@ -10,5 +10,5 @@ features:
   # - display
   # - rgb backlight
 siblings:
-  - corne_left
-  - corne_right
+  - ardea_corne_left
+  - ardea_corne_right

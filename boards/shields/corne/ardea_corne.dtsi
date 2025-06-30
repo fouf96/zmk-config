@@ -40,7 +40,7 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
             , <NRF_PSEL(SPIM_MOSI, 1, 4) (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
         col-gpios
-            = <NRF_PSEL(SPIM_MOSI, 0, 221) GPIO_ACTIVE_HIGH>
+            = <NRF_PSEL(SPIM_MOSI, 0, 2) GPIO_ACTIVE_HIGH>
             , <NRF_PSEL(SPIM_MOSI, 1, 15) GPIO_ACTIVE_HIGH>
             , <NRF_PSEL(SPIM_MOSI, 1, 13) GPIO_ACTIVE_HIGH>
             , <<NRF_PSEL(SPIM_MOSI, 1, 11) GPIO_ACTIVE_HIGH>

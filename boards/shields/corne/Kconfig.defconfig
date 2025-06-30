@@ -1,23 +1,23 @@
 # This file sets the the board specific configuration
 # see https://docs.zephyrproject.org/latest/build/kconfig/setting.html#initial-conf
 
-if SHIELD_CORNE_LEFT
+if SHIELD_ARDEA_CORNE_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "Corne"
+    default "ardea_corne"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-endif # SHIELD_CORNE_LEFT
+endif # SHIELD_ardea_corne_LEFT
 
-if SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
+if SHIELD_ARDEA_CORNE_LEFT || SHIELD_ARDEA_CORNE_RIGHT
 
 config ZMK_SPLIT
     default y
 
-config CORNE_PM
-    bool "Corne Automatic Power Management"
+config ARDEA_CORNE_PM
+    bool "ardea_corne Automatic Power Management"
     default y
     select ZMK_POWER_DOMAINS
     select ZMK_POWER_DOMAINS_DYNAMIC_DEFAULT
@@ -27,8 +27,8 @@ config CORNE_PM
     select POWER_DOMAIN
     select POWER_DOMAIN_GPIO
 
-config CORNE_RGB_UNDERGLOW
-    bool "Corne per Key RGB LEDs"
+config ARDEA_CORNE_RGB_UNDERGLOW
+    bool "ardea_corne per Key RGB LEDs"
     default y
     select ZMK_RGB_UNDERGLOW
     select WS2812_STRIP
@@ -36,8 +36,8 @@ config CORNE_RGB_UNDERGLOW
     select ZMK_RGB_UNDERGLOW_AUTO_OFF_IDLE
     select ZMK_RGB_UNDERGLOW_AUTO_OFF_USB
 
-config CORNE_DISPLAY
-    bool "Corne OLED Display"
+config ARDEA_CORNE_DISPLAY
+    bool "ardea_corne OLED Display"
     default y
     select ZMK_DISPLAY
     select I2C
@@ -62,4 +62,4 @@ endchoice
 endif # LVGL
 
     
-endif # SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
+endif # SHIELD_ARDEA_CORNE_LEFT || SHIELD_ARDEA_CORNE_RIGHT
