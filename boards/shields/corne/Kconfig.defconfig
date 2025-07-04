@@ -16,17 +16,6 @@ if SHIELD_ARDEA_CORNE_LEFT || SHIELD_ARDEA_CORNE_RIGHT
 config ZMK_SPLIT
     default y
 
-config ARDEA_CORNE_PM
-    bool "ardea_corne Automatic Power Management"
-    default y
-    select ZMK_POWER_DOMAINS
-    select ZMK_POWER_DOMAINS_DYNAMIC_DEFAULT
-    select PM_DEVICE
-    select PM_DEVICE_POWER_DOMAIN
-    select PM_DEVICE_RUNTIME
-    select POWER_DOMAIN
-    select POWER_DOMAIN_GPIO
-
 config ARDEA_CORNE_RGB_UNDERGLOW
     bool "ardea_corne per Key RGB LEDs"
     default y
