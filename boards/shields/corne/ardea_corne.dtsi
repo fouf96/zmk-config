@@ -63,10 +63,6 @@
     };
 };
 
-&core_power_domain{
-    startup-delay-us = <200000>; // if this value is too low the OLED will not turn on, the MOSFET will turn on the power but the display will not show anything  
-    off-on-delay-us = <200000>; // if this value is too low the OLED will not turn on, see above (startup-delay-us)
-};
 
 / {
     chosen {
@@ -74,6 +70,12 @@
         zmk,kscan = &kscan0;
         zmk,underglow = &led_strip;
         zephyr,display = &oled;
+    };
+
+    EXT_POWER{
+        compatible = "zmk,ext-power-generic";
+        control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+        init-delay-ms = <200>;
     };
 
     default_transform: keymap_transform_0 {
