@@ -66,7 +66,7 @@
 &core_power_domain{
     startup-delay-us = <200000>; // if this value is too low the OLED will not turn on, the MOSFET will turn on the power but the display will not show anything  
     off-on-delay-us = <200000>; // if this value is too low the OLED will not turn on, see above (startup-delay-us)
-}
+};
 
 / {
     chosen {
