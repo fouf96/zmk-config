@@ -18,7 +18,7 @@ config ZMK_SPLIT
 
 config ARDEA_CORNE_RGB_UNDERGLOW
     bool "ardea_corne per Key RGB LEDs"
-    default y
+    default n
     select ZMK_RGB_UNDERGLOW
     select WS2812_STRIP
     select SPI
