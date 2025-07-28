@@ -6,21 +6,21 @@
 # distinguish build outputs from each other:
 #
 # board: [ "nice_nano_v2" ]
-# shield: [ "ardea_corne_left", "ardea_corne_right" ]
+# shield: [ "kamo_corne_mx_left", "kamo_corne_mx_right" ]
 # include:
 #   - board: bdn9_rev2
 #   - board: nice_nano_v2
 #     shield: reviung41
 #   - board: nice_nano_v2
-#     shield: ardea_corne_left
+#     shield: kamo_corne_mx_left
 #     cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
-#     artifact-name: ardea_corne_left_with_logging
+#     artifact-name: kamo_corne_mx_left_with_logging
 #
 ---
 include:
   - board: "nice_nano_v2"
-    shield: "ardea_corne_left"  
+    shield: "kamo_corne_mx_left"  
   - board: "nice_nano_v2"
-    shield: "ardea_corne_right"
+    shield: "kamo_corne_mx_right"
   - board: "nice_nano_v2"
     shield: "settings_reset"
