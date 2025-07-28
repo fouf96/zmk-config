@@ -1,4 +1,4 @@
-#include "ardea_corne.dtsi"
+#include "kamo_corne_mx.dtsi"
 
 &default_transform {
     col-offset = <6>;

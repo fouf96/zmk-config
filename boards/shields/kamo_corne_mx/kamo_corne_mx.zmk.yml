@@ -1,6 +1,6 @@
 file_format: "1"
-id: ardea_corne
-name: ardea_corne
+id: kamo_corne_mx
+name: kamo_corne_mx
 type: shield
 # url: https://github.com/foostan/crkbd/
 requires: [pro_micro]
@@ -10,5 +10,5 @@ features:
   - display
   # - rgb backlight
 siblings:
-  - ardea_corne_left
-  - ardea_corne_right
+  - kamo_corne_mx_left
+  - kamo_corne_mx_right

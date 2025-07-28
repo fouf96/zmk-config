@@ -1,11 +1,11 @@
 # Define shield specific symbols (configuration options/ what i would
 # call "configuration variables")
 
-config SHIELD_ARDEA_CORNE_LEFT
-    def_bool $(shields_list_contains,ardea_corne_left)
+config SHIELD_KAMO_CORNE_MX_LEFT
+    def_bool $(shields_list_contains,kamo_corne_mx_left)
 
-config SHIELD_ARDEA_CORNE_RIGHT
-    def_bool $(shields_list_contains,ardea_corne_right)
+config SHIELD_KAMO_CORNE_MX_RIGHT
+    def_bool $(shields_list_contains,kamo_corne_mx_right)
 
 # ---
 # Note to self:
