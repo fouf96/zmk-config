@@ -1,6 +1,13 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+&left_encoder {
+    status = "okay";
+};
+&right_encoder {
+    status = "okay";
+};
+
 / {
         keymap {
                 compatible = "zmk,keymap";
@@ -18,6 +25,7 @@
    &kp G &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp H
                &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
                         >;
+                        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
                 };
         };
 };
