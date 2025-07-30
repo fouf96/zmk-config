@@ -5,9 +5,6 @@
         compatible = "zmk,physical-layout";
         display-name = "Default Layout";
 
-        kscan = <&kscan0>; // Label of the kscan node this layout uses
-        transform = <&default_transform>; // Label of the matrix transform this layout uses
-
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0   37       0     0     0>
             , <&key_physical_attrs 100 100  100   37       0     0     0>
@@ -54,5 +51,14 @@
             , <&key_physical_attrs 100 100  600  255       0     0     0>
             , <&key_physical_attrs 100 100  700  255       0     0     0>
             ;
+    };
+
+    position_map {
+        compatible = "zmk,physical-layout-position-map";
+
+        layout0 {
+            physical-layout = <&physical_layout0>;
+            positions = <>;
+        };
     };
 };
