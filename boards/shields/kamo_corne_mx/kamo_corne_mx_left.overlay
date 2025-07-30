@@ -1,5 +1,1 @@
 #include "kamo_corne_mx.dtsi"
-
-&left_encoder {
-    status = "okay";
-};
