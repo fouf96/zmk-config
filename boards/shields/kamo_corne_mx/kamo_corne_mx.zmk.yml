@@ -9,6 +9,7 @@ features:
   - keys
   - display
   - encoder
+  - studio
   # - rgb backlight
 siblings:
   - kamo_corne_mx_left
