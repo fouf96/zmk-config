@@ -16,19 +16,9 @@ if SHIELD_KAMO_CORNE_MX_LEFT || SHIELD_KAMO_CORNE_MX_RIGHT
 config ZMK_SPLIT
     default y
 
-config KAMO_CORNE_MX_RGB_UNDERGLOW
-    bool "kamo_corne_mx per Key RGB LEDs"
-    default n
-    select ZMK_RGB_UNDERGLOW
-    select WS2812_STRIP
-    select SPI
-    select ZMK_RGB_UNDERGLOW_AUTO_OFF_IDLE
-    select ZMK_RGB_UNDERGLOW_AUTO_OFF_USB
-
-config KAMO_CORNE_MX_DISPLAY
-    bool "kamo_corne_mx OLED Display"
+config ZMK_DISPLAY
+    bool "OLED Display"
     default y
-    select ZMK_DISPLAY
     select I2C
     select SSD1306
 
@@ -50,5 +40,13 @@ endchoice
 
 endif # LVGL
 
-    
+config ZMK_RGB_UNDERGLOW
+    bool "Per Key & Underglow RGB LEDs"
+    default n
+    select WS2812_STRIP
+    select SPI
+    select ZMK_RGB_UNDERGLOW_AUTO_OFF_IDLE
+    select ZMK_RGB_UNDERGLOW_AUTO_OFF_USB
+
+
 endif # SHIELD_KAMO_CORNE_MX_LEFT || SHIELD_KAMO_CORNE_MX_RIGHT
